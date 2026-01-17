@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>FOR SAMANTHA — Valentine’s Question</title>
+
+<style>
+:root{
+  --blush:#fff5f7;
+  --rose:#f2c1cc;
+  --wine:#8b3a4a;
+  --champagne:#f6e6c8;
+  --ink:#3b2a2e;
+  --muted:rgba(59,42,46,0.45);
+  --pacing:64px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(1200px 600px at top, #ffffff 0%, var(--blush) 45%, #fdecef 100%);
+  color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",serif;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:88px 20px;
+}
+
+/* HEADER */
+.for-title{
+  font-family:-apple-system,sans-serif;
+  font-size:.7rem;
+  letter-spacing:.8em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:14px;
+}
+
+.main-title{
+  font-size:2.7rem;
+  letter-spacing:.18em;
+  font-weight:300;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  font-family:-apple-system,sans-serif;
+  font-size:.75rem;
+  letter-spacing:.35em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:var(--pacing);
+}
+
+/* PICTURE FRAME */
+.picture-frame{
+  padding:16px;
+  background:linear-gradient(135deg,#e8b7c0,#f5cfd6 35%,#e0aab6);
+  box-shadow:
+    0 32px 64px rgba(0,0,0,.18),
+    inset 0 2px 6px rgba(255,255,255,.65),
+    inset 0 -4px 8px rgba(0,0,0,.14);
+  margin-bottom:var(--pacing);
+}
+
+.frame-mat{
+  padding:10px;
+  background:#fffaf8;
+  box-shadow:inset 0 0 0 1px rgba(170,120,130,.25);
+}
+
+/* SLIDESHOW */
+.slideshow{
+  width:100%;
+  max-width:440px;
+  aspect-ratio:4/5;
+  position:relative;
+  overflow:hidden;
+  background:#fff;
+}
+
+.slide{
+  position:absolute; inset:0;
+  opacity:0;
+  transition:opacity 2.6s ease-in-out;
+  display:flex;align-items:center;justify-content:center;
+}
+.slide.active{opacity:1}
+.slide img{width:100%;height:100%;object-fit:contain}
+
+/* AUDIO */
+.audio-wrap{margin-bottom:var(--pacing)}
+.audio-btn{
+  width:180px;height:46px;
+  background:linear-gradient(135deg,#fff,var(--rose));
+  border-radius:30px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  box-shadow:0 12px 28px rgba(242,193,204,.55);
+  transition:.3s;
+}
+.audio-btn.playing{
+  background:linear-gradient(135deg,var(--champagne),var(--rose));
+  box-shadow:0 0 20px rgba(242,193,204,.9);
+}
+.audio-btn span{
+  font-family:-apple-system,sans-serif;
+  font-size:.65rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+}
+
+/* MESSAGE (THE ASK) */
+.message{
+  background:rgba(255,255,255,.55);
+  backdrop-filter:blur(10px);
+  padding:64px 34px;
+  border-radius:44px;
+  max-width:360px;
+  margin-bottom:72px;
+}
+.message p{
+  font-size:1.1rem;
+  font-style:italic;
+  margin-bottom:26px;
+}
+.message p:last-child{margin-bottom:0}
+
+/* RESPONSE */
+.response{
+  margin-bottom:96px;
+}
+.yes{
+  display:inline-block;
+  padding:16px 28px;
+  border-radius:28px;
+  background:linear-gradient(135deg,var(--wine),#b25566);
+  color:#fff;
+  font-family:-apple-system,sans-serif;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  text-decoration:none;
+  box-shadow:0 18px 36px rgba(139,58,74,.45);
+}
+
+/* FOOTER */
+.footer{
+  margin-top:auto;
+  font-size:.6rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<div class="for-title">FOR</div>
+<h1 class="main-title">SAMANTHA</h1>
+<div class="subtitle">A VALENTINE’S QUESTION</div>
+
+<div class="picture-frame">
+  <div class="frame-mat">
+    <section class="slideshow">
+      <div class="slide active"><img src="slide1.jpg"></div>
+      <div class="slide"><img src="slide2.jpg"></div>
+      <div class="slide"><img src="slide3.jpg"></div>
+      <div class="slide"><img src="slide4.jpg"></div>
+      <div class="slide"><img src="slide5.jpg"></div>
+    </section>
+  </div>
+</div>
+
+<div class="audio-wrap">
+  <div class="audio-btn" id="audioBtn">
+    <span id="audioText">LISTEN</span>
+  </div>
+  <audio id="audio" src="val.mp3"></audio>
+</div>
+
+<section class="message">
+  <p>I didn’t want to ask loudly.</p>
+  <p>I wanted to ask honestly.</p>
+  <p>Not because it’s Valentine’s —<br>but because you are you.</p>
+  <p>So here it is,<br>kept in a moment that won’t rush you.</p>
+  <p><strong>Will you be my Valentine?</strong></p>
+</section>
+
+<div class="response">
+  <a class="yes"
+     href="https://wa.me/?text=I%20listened.%20I%20felt%20it.%20Yes%20—%20I’d%20love%20to%20be%20your%20Valentine.%20💗"
+     target="_blank">
+     I’M SAYING YES
+  </a>
+</div>
+
+<footer class="footer">
+  A memory preserved by WarStreet Experience Model
+</footer>
+
+<script>
+/* slideshow */
+const slides=document.querySelectorAll('.slide');
+let i=0;
+setInterval(()=>{
+  slides[i].classList.remove('active');
+  i=(i+1)%slides.length;
+  slides[i].classList.add('active');
+},5200);
+
+/* audio */
+const btn=document.getElementById('audioBtn');
+const audio=document.getElementById('audio');
+const text=document.getElementById('audioText');
+let playing=false;
+btn.onclick=()=>{
+  if(playing){
+    audio.pause();
+    text.innerText="LISTEN";
+    btn.classList.remove('playing');
+  }else{
+    audio.play();
+    text.innerText="PAUSE";
+    btn.classList.add('playing');
+  }
+  playing=!playing;
+};
+</script>
+
+</body>
+</html>
