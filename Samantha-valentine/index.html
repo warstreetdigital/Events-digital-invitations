@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>FOR SAMANTHA — Valentine’s Question</title>
+<title>FOR SAMANTHA — Will You Be My Valentine?</title>
 
 <style>
 :root{
-  --blush:#fff5f7;
-  --rose:#f2c1cc;
-  --wine:#8b3a4a;
-  --champagne:#f6e6c8;
-  --ink:#3b2a2e;
-  --muted:rgba(59,42,46,0.45);
-  --pacing:64px;
+  --rose-dark:#7a1f2b;
+  --rose:#b33645;
+  --cream:#fff6ee;
+  --gold:#d6b37a;
+  --ink:#2a161a;
+  --muted:rgba(42,22,26,.45);
+  --space:64px;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -21,18 +21,18 @@
 body{
   min-height:100vh;
   background:
-    radial-gradient(1200px 600px at top, #ffffff 0%, var(--blush) 45%, #fdecef 100%);
+    radial-gradient(800px 400px at top, #fff 0%, var(--cream) 35%, #fde8ea 100%);
   color:var(--ink);
   font-family:"Iowan Old Style","Palatino Linotype",serif;
   display:flex;
   flex-direction:column;
   align-items:center;
   text-align:center;
-  padding:88px 20px;
+  padding:84px 20px;
 }
 
 /* HEADER */
-.for-title{
+.for{
   font-family:-apple-system,sans-serif;
   font-size:.7rem;
   letter-spacing:.8em;
@@ -41,38 +41,21 @@ body{
   margin-bottom:14px;
 }
 
-.main-title{
-  font-size:2.7rem;
+.name{
+  font-size:2.9rem;
   letter-spacing:.18em;
   font-weight:300;
   text-transform:uppercase;
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
 
-.subtitle{
+.tag{
   font-family:-apple-system,sans-serif;
   font-size:.75rem;
   letter-spacing:.35em;
   text-transform:uppercase;
   color:var(--muted);
-  margin-bottom:var(--pacing);
-}
-
-/* PICTURE FRAME */
-.picture-frame{
-  padding:16px;
-  background:linear-gradient(135deg,#e8b7c0,#f5cfd6 35%,#e0aab6);
-  box-shadow:
-    0 32px 64px rgba(0,0,0,.18),
-    inset 0 2px 6px rgba(255,255,255,.65),
-    inset 0 -4px 8px rgba(0,0,0,.14);
-  margin-bottom:var(--pacing);
-}
-
-.frame-mat{
-  padding:10px;
-  background:#fffaf8;
-  box-shadow:inset 0 0 0 1px rgba(170,120,130,.25);
+  margin-bottom:var(--space);
 }
 
 /* SLIDESHOW */
@@ -81,34 +64,54 @@ body{
   max-width:440px;
   aspect-ratio:4/5;
   position:relative;
+  margin-bottom:var(--space);
   overflow:hidden;
   background:#fff;
+  box-shadow:0 30px 60px rgba(122,31,43,.25);
+  border-radius:6px;
 }
 
 .slide{
-  position:absolute; inset:0;
+  position:absolute;
+  inset:0;
   opacity:0;
-  transition:opacity 2.6s ease-in-out;
-  display:flex;align-items:center;justify-content:center;
+  transition:opacity 2.8s ease-in-out;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
+
 .slide.active{opacity:1}
-.slide img{width:100%;height:100%;object-fit:contain}
+
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
 
 /* AUDIO */
-.audio-wrap{margin-bottom:var(--pacing)}
+.audio-zone{
+  margin-bottom:var(--space);
+}
+
 .audio-btn{
-  width:180px;height:46px;
-  background:linear-gradient(135deg,#fff,var(--rose));
+  width:190px;
+  height:48px;
   border-radius:30px;
-  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--rose-dark),var(--rose));
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   cursor:pointer;
-  box-shadow:0 12px 28px rgba(242,193,204,.55);
-  transition:.3s;
+  box-shadow:0 16px 36px rgba(122,31,43,.45);
+  transition:.35s ease;
 }
+
 .audio-btn.playing{
-  background:linear-gradient(135deg,var(--champagne),var(--rose));
-  box-shadow:0 0 20px rgba(242,193,204,.9);
+  box-shadow:0 0 26px rgba(179,54,69,.9);
 }
+
 .audio-btn span{
   font-family:-apple-system,sans-serif;
   font-size:.65rem;
@@ -116,37 +119,40 @@ body{
   text-transform:uppercase;
 }
 
-/* MESSAGE (THE ASK) */
+/* MESSAGE */
 .message{
-  background:rgba(255,255,255,.55);
+  background:rgba(255,255,255,.65);
   backdrop-filter:blur(10px);
-  padding:64px 34px;
-  border-radius:44px;
-  max-width:360px;
-  margin-bottom:72px;
+  padding:66px 36px;
+  border-radius:46px;
+  max-width:380px;
+  margin-bottom:76px;
 }
+
 .message p{
-  font-size:1.1rem;
+  font-size:1.12rem;
   font-style:italic;
   margin-bottom:26px;
 }
+
 .message p:last-child{margin-bottom:0}
 
 /* RESPONSE */
 .response{
   margin-bottom:96px;
 }
+
 .yes{
   display:inline-block;
-  padding:16px 28px;
-  border-radius:28px;
-  background:linear-gradient(135deg,var(--wine),#b25566);
-  color:#fff;
+  padding:18px 34px;
+  border-radius:30px;
+  background:linear-gradient(135deg,var(--gold),#e6c892);
+  color:#3b2616;
   font-family:-apple-system,sans-serif;
   letter-spacing:.18em;
   text-transform:uppercase;
   text-decoration:none;
-  box-shadow:0 18px 36px rgba(139,58,74,.45);
+  box-shadow:0 20px 40px rgba(214,179,122,.5);
 }
 
 /* FOOTER */
@@ -162,23 +168,19 @@ body{
 
 <body>
 
-<div class="for-title">FOR</div>
-<h1 class="main-title">SAMANTHA</h1>
-<div class="subtitle">A VALENTINE’S QUESTION</div>
+<div class="for">FOR</div>
+<h1 class="name">SAMANTHA</h1>
+<div class="tag">A Valentine’s Question</div>
 
-<div class="picture-frame">
-  <div class="frame-mat">
-    <section class="slideshow">
-      <div class="slide active"><img src="slide1.jpg"></div>
-      <div class="slide"><img src="slide2.jpg"></div>
-      <div class="slide"><img src="slide3.jpg"></div>
-      <div class="slide"><img src="slide4.jpg"></div>
-      <div class="slide"><img src="slide5.jpg"></div>
-    </section>
-  </div>
-</div>
+<section class="slideshow">
+  <div class="slide active"><img src="slide1.jpg"></div>
+  <div class="slide"><img src="slide2.jpg"></div>
+  <div class="slide"><img src="slide3.jpg"></div>
+  <div class="slide"><img src="slide4.jpg"></div>
+  <div class="slide"><img src="slide5.jpg"></div>
+</section>
 
-<div class="audio-wrap">
+<div class="audio-zone">
   <div class="audio-btn" id="audioBtn">
     <span id="audioText">LISTEN</span>
   </div>
@@ -186,18 +188,19 @@ body{
 </div>
 
 <section class="message">
-  <p>I didn’t want to ask loudly.</p>
-  <p>I wanted to ask honestly.</p>
-  <p>Not because it’s Valentine’s —<br>but because you are you.</p>
-  <p>So here it is,<br>kept in a moment that won’t rush you.</p>
+  <p>I didn’t plan a speech.</p>
+  <p>I planned a moment.</p>
+  <p>Something quiet. Intentional.<br>Something that feels like roses on the table.</p>
+  <p>This isn’t about the day.</p>
+  <p>It’s about choosing you.</p>
   <p><strong>Will you be my Valentine?</strong></p>
 </section>
 
 <div class="response">
   <a class="yes"
-     href="https://wa.me/?text=I%20listened.%20I%20felt%20it.%20Yes%20—%20I’d%20love%20to%20be%20your%20Valentine.%20💗"
+     href="https://wa.me/?text=I%20felt%20this.%20Yes%20—%20I’ll%20be%20your%20Valentine.%20🌹"
      target="_blank">
-     I’M SAYING YES
+     SAY YES
   </a>
 </div>
 
@@ -220,6 +223,7 @@ const btn=document.getElementById('audioBtn');
 const audio=document.getElementById('audio');
 const text=document.getElementById('audioText');
 let playing=false;
+
 btn.onclick=()=>{
   if(playing){
     audio.pause();
